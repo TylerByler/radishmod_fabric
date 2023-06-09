@@ -2,6 +2,14 @@ package net.tyler.radishmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.tyler.radishmod.block.ModBlocks;
+import net.tyler.radishmod.entity.ModEntities;
+import net.tyler.radishmod.entity.custom.LuoboEntity;
+import net.tyler.radishmod.entity.custom.RadscalEntity;
+import net.tyler.radishmod.item.ModCreativeModeTabs;
+import net.tyler.radishmod.item.ModItems;
+import net.tyler.radishmod.world.gen.ModEntityGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,10 +19,13 @@ public class RadishMod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		ModCreativeModeTabs.registerItemGroups();
+		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 
-		LOGGER.info("Hello Fabric world!");
+		FabricDefaultAttributeRegistry.register(ModEntities.RADSCAL, RadscalEntity.setAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.LUOBO, LuoboEntity.setAttributes());
+
+		ModEntityGeneration.addSpawns();
 	}
 }
