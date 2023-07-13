@@ -15,4 +15,9 @@ public class LuoboRenderer extends GeoEntityRenderer<LuoboEntity> {
     public Identifier getTextureLocation(LuoboEntity animatable) {
         return new Identifier(RadishMod.MOD_ID, "textures/entity/luobo.png");
     }
+
+    @Override
+    public float getMotionAnimThreshold(LuoboEntity animatable) {
+        return 0.01f;
+    }
 }

@@ -15,4 +15,9 @@ public class RadscalRenderer extends GeoEntityRenderer<RadscalEntity> {
     public Identifier getTextureLocation(RadscalEntity animatable) {
         return new Identifier(RadishMod.MOD_ID, "textures/entity/radscal.png");
     }
+
+    @Override
+    public float getMotionAnimThreshold(RadscalEntity animatable) {
+        return 0.01f;
+    }
 }

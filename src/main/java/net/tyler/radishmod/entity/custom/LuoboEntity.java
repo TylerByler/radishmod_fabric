@@ -55,7 +55,7 @@ public class LuoboEntity extends AnimalEntity implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "Walk/Idle", 5, (state) -> {
+        controllerRegistrar.add(new AnimationController<>(this, "Walk/Idle", 0, (state) -> {
             if (state.isMoving() && this.isAttacking()) {
                 state.setAndContinue(RUN);
             } else if (state.isMoving()) {

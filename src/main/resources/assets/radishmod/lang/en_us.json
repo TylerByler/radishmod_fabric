@@ -9,5 +9,7 @@
   "radishmod.test_group": "Radish Mod",
 
   "entity.radishmod.radscal": "Radscal",
-  "entity.radishmod.luobo": "Luobo"
+  "entity.radishmod.luobo": "Luobo",
+
+  "radishmod.radscal.swing": "Radscal Just Swung"
 }

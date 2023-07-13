@@ -8,6 +8,7 @@ import net.tyler.radishmod.block.ModBlocks;
 import net.tyler.radishmod.entity.ModEntities;
 import net.tyler.radishmod.entity.client.LuoboRenderer;
 import net.tyler.radishmod.entity.client.RadscalRenderer;
+import net.tyler.radishmod.networking.ModMessages;
 
 public class RadishModClient implements ClientModInitializer {
     @Override
@@ -16,5 +17,7 @@ public class RadishModClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(ModEntities.RADSCAL, RadscalRenderer::new);
         EntityRendererRegistry.register(ModEntities.LUOBO, LuoboRenderer::new);
+
+        ModMessages.registerS2CPackets();
     }
 }

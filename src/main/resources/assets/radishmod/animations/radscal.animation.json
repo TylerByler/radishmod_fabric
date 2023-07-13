@@ -263,6 +263,24 @@
 					}
 				}
 			}
+		},
+		"animation.radscal.attackbasic": {
+			"animation_length": 0.16667,
+			"bones": {
+				"TopHalf": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.0417": {
+							"vector": [15, 0, 0]
+						},
+						"0.1667": {
+							"vector": [0, 0, 0]
+						}
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2
