@@ -1,10 +1,17 @@
 {
   "item.radishmod.radish": "Radish",
+  "item.radishmod.radish_bundle": "Bundle of Radishes",
+  "item.radishmod.roasted_radish": "Roasted Radishes",
+  "item.radishmod.vegetable_soup": "Vegetable Soup",
+  "item.radishmod.hearty_radish": "Hearty Radish",
   "item.radishmod.radish_seeds": "Radish Seeds",
   "item.radishmod.radscal_spawn_egg": "Radscal Spawn Egg",
   "item.radishmod.luobo_spawn_egg": "Luobo Spawn Egg",
 
   "block.radishmod.radish_crop": "Radish Crop",
+  "block.radishmod.compact_radishes": "Block of Compact Radishes",
+  "block.radishmod.radish_bricks": "Radish Bricks",
+  "block.radishmod.decorated_radish_bricks": "Decorated Radish Bricks",
 
   "radishmod.test_group": "Radish Mod",
 

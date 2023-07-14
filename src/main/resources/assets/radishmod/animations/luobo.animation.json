@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.luopo.walk": {
+		"animation.luobo.walk": {
 			"loop": true,
 			"animation_length": 1.33333,
 			"bones": {
@@ -148,7 +148,7 @@
 				}
 			}
 		},
-		"animation.luopo.idle": {
+		"animation.luobo.idle": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {
@@ -179,10 +179,10 @@
 				}
 			}
 		},
-		"animation.luopo.run": {
+		"animation.luobo.run": {
 			"loop": true
 		},
-		"animation.luopo.attack": {
+		"animation.luobo.attack": {
 			"loop": true
 		}
 	},

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "## ",
+    "## ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "radishmod:radish"
+    }
+  },
+  "result": {
+    "item": "radishmod:radish_bundle"
+  }
+}

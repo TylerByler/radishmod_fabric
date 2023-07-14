@@ -8,18 +8,27 @@ import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.tyler.radishmod.RadishMod;
 import net.tyler.radishmod.block.custom.RadishCropBlock;
+import net.tyler.radishmod.item.ModCreativeModeTabs;
 
 public class ModBlocks {
 
     // *** Define and register new Blocks *** //
     public static final Block RADISH_CROP = registerBlockWithoutItem("radish_crop",
             new RadishCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
+    public static final Block COMPACT_RADISHES = registerBlock("compact_radishes",
+            new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN)), ItemGroups.NATURAL);
+    public static final Block RADISH_BRICKS = registerBlock("radish_bricks",
+            new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)), ItemGroups.NATURAL);
+    public static final Block DECORATED_RADISH_BRICKS = registerBlock("decorated_radish_bricks",
+            new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)), ItemGroups.NATURAL);
+
 
     // *** Helper Methods *** //
 
@@ -44,6 +53,7 @@ public class ModBlocks {
     //Adds Item counterpart to an ItemGroup
     private static void addToItemGroup(RegistryKey<ItemGroup> group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
+        ItemGroupEvents.modifyEntriesEvent(ModCreativeModeTabs.RADISH_MOD_GROUP).register(entries -> entries.add(item));
     }
 
     public static void registerModBlocks() {
