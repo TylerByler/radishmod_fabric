@@ -17,34 +17,57 @@ import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.animation.RawAnimation;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
+import java.util.Random;
+
 public class LuoboEntity extends AnimalEntity implements GeoEntity {
     private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public static final RawAnimation WALK = RawAnimation.begin().thenLoop("animation.luobo.walk");
     public static final RawAnimation IDLE = RawAnimation.begin().thenLoop("animation.luobo.idle");
     public static final RawAnimation RUN = RawAnimation.begin().thenLoop("animation.luobo.run");
 
+    private final Eyes eyes;
+
     public LuoboEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
+        int randomNum = new Random().nextInt((4-1) + 1) + 1;
+
+        switch (randomNum) {
+            case 1 -> eyes = Eyes.LEFT;
+            case 2 -> eyes = Eyes.RIGHT;
+            case 3 -> eyes = Eyes.BOTH;
+            case 4 -> eyes = Eyes.NONE;
+            default -> eyes = Eyes.LEFT;
+        }
+    }
+
+    public enum Eyes {
+        LEFT,
+        RIGHT,
+        BOTH,
+        NONE
     }
 
     public static DefaultAttributeContainer.Builder setAttributes() {
         return AnimalEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 8D)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 16D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 1.5f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.15f);
     }
 
+    public Eyes getEyes() {
+        return this.eyes;
+    }
+
     @Override
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
-        this.goalSelector.add(2, new MeleeAttackGoal(this, 2.0D, false));
+        this.goalSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.goalSelector.add(7, new WanderAroundFarGoal(this, 1.0D));
 
         this.goalSelector.add(8, new LookAtEntityGoal(this, PlayerEntity.class, 8.0f));
         this.goalSelector.add(8, new LookAroundGoal(this));
-
-        this.goalSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+        this.goalSelector.add(2, new MeleeAttackGoal(this, 2.0D, false));
     }
 
     @Nullable

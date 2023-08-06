@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "## ",
+    "## ",
+    "   "
+  ],
+  "key": {
+    "#": {
+      "item": "radishmod:radish_bricks"
+    }
+  },
+  "result": {
+    "item": "radishmod:decorated_radish_bricks",
+    "count": 4
+  }
+}

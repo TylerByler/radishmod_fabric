@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "radishmod:compact_radishes"
+    }
+  ],
+  "result": {
+    "item": "radishmod:radish",
+    "count": 9
+  }
+}

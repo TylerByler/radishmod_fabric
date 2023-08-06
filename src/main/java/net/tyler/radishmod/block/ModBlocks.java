@@ -14,6 +14,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.tyler.radishmod.RadishMod;
+import net.tyler.radishmod.block.custom.RadishCrateBlock;
 import net.tyler.radishmod.block.custom.RadishCropBlock;
 import net.tyler.radishmod.item.ModCreativeModeTabs;
 
@@ -28,6 +29,8 @@ public class ModBlocks {
             new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)), ItemGroups.NATURAL);
     public static final Block DECORATED_RADISH_BRICKS = registerBlock("decorated_radish_bricks",
             new Block(FabricBlockSettings.copyOf(Blocks.BRICKS)), ItemGroups.NATURAL);
+    public static final Block RADISH_CRATE = registerBlock("radish_crate",
+            new RadishCrateBlock(FabricBlockSettings.copyOf(Blocks.COMPOSTER).nonOpaque()), ItemGroups.BUILDING_BLOCKS);
 
 
     // *** Helper Methods *** //

@@ -1,0 +1,36 @@
+{
+  "multipart": [
+    {
+      "when": {"facing": "north"},
+      "apply": {"model": "radishmod:block/radish_crate"}
+    },
+    {
+      "when": {"facing": "south"},
+      "apply": {"model": "radishmod:block/radish_crate", "y": 180}
+    },
+    {
+      "when": {"facing": "west"},
+      "apply": {"model": "radishmod:block/radish_crate", "y": 270}
+    },
+    {
+      "when": {"facing": "east"},
+      "apply": {"model": "radishmod:block/radish_crate", "y": 90}
+    },
+    {
+      "when": {"level": "1"},
+      "apply": {"model": "radishmod:block/radish_crate_level_1"}
+    },
+    {
+      "when": {"level": "2"},
+      "apply": {"model": "radishmod:block/radish_crate_level_2"}
+    },
+    {
+      "when": {"level": "3"},
+      "apply": {"model": "radishmod:block/radish_crate_level_3"}
+    },
+    {
+      "when": {"level": "4"},
+      "apply": {"model": "radishmod:block/radish_crate_level_4"}
+    }
+  ]
+}

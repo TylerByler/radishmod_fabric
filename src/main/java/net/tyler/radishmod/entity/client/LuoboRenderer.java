@@ -13,7 +13,16 @@ public class LuoboRenderer extends GeoEntityRenderer<LuoboEntity> {
 
     @Override
     public Identifier getTextureLocation(LuoboEntity animatable) {
-        return new Identifier(RadishMod.MOD_ID, "textures/entity/luobo.png");
+        Identifier identifier;
+        switch(animatable.getEyes()) {
+            case BOTH -> identifier = new Identifier(RadishMod.MOD_ID, "textures/entity/luobo_both_eyes.png");
+            case LEFT -> identifier = new Identifier(RadishMod.MOD_ID, "textures/entity/luobo_left_eye.png");
+            case RIGHT -> identifier = new Identifier(RadishMod.MOD_ID, "textures/entity/luobo_right_eye.png");
+            case NONE -> identifier = new Identifier(RadishMod.MOD_ID, "textures/entity/luobo_no_eyes.png");
+            default -> identifier = new Identifier(RadishMod.MOD_ID, "textures/entity/luobo_left_eye.png");
+        }
+
+        return identifier;
     }
 
     @Override

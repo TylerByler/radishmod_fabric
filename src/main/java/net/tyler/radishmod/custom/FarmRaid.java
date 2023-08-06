@@ -1,4 +1,4 @@
-/**package net.tyler.radishmod.custom;
+/*package net.tyler.radishmod.custom;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -110,4 +110,4 @@ public class FarmRaid {
         }
     }
 }
-**/
+*/

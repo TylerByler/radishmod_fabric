@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    },
+    {
+      "item": "radishmod:radish"
+    }
+  ],
+  "result": {
+    "item": "radishmod:compact_radishes"
+  }
+}
