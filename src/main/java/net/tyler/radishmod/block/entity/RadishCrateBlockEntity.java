@@ -1,5 +1,6 @@
 package net.tyler.radishmod.block.entity;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -10,10 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.tyler.radishmod.block.custom.RadishCrateBlock;
 import net.tyler.radishmod.screen.RadishCrateScreenHandler;
 import org.jetbrains.annotations.Nullable;
 
@@ -57,10 +60,21 @@ public class RadishCrateBlockEntity extends BlockEntity implements NamedScreenHa
             return;
         }
 
-        updateLevel();
-    }
+        Block block = world.getBlockState(blockPos).getBlock();
+        if (block.getClass().equals(RadishCrateBlock.class)) {
+            int count = entity.INVENTORY.get(1).getCount() + entity.INVENTORY.get(2).getCount();
+            if(count > 0) {
+                if(count > 32) {
+                    if(count > 64) {
+                        if(count > 96) {
+                            if (count > 128) {
 
-    private static void updateLevel() {
-
+                            }
+                        }
+                    }
+                }
+            }
+            ((RadishCrateBlock) block).LEVEL
+        }
     }
 }
