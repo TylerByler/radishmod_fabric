@@ -2,6 +2,8 @@ package net.tyler.radishmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -15,19 +17,26 @@ public class ModItems {
 
     // *** Define and register new items *** //
     public static final Item RADISH = registerItem("radish",
-            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(4).saturationModifier(4).build())));
+            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(.6f).build())));
+
     public static final Item ROASTED_RADISH = registerItem("roasted_radish",
-            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(6).build())));
+            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(1.6f).build())));
+
     public static final Item HEARTYRADISH = registerItem("hearty_radish",
-            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(8).saturationModifier(8).build())));
+            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(6).saturationModifier(2.4f)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100, 1), 1.0F)
+                    .statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 2400, 0), 1.0F).build())));
+
     public static final Item VEGETABLE_SOUP = registerItem("vegetable_soup",
-            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(8).saturationModifier(8).build()).maxCount(1)));
+            new Item(new FabricItemSettings().food(new FoodComponent.Builder().hunger(8).saturationModifier(1.6f).build()).maxCount(1)));
+
 
     public static final Item RADISH_BUNDLE = registerItem("radish_bundle",
             new Item(new FabricItemSettings()));
 
     public static final Item RADISH_SEEDS = registerItem("radish_seeds",
             new AliasedBlockItem(ModBlocks.RADISH_CROP, new FabricItemSettings()));
+
 
     public static final Item RADSCAL_SPAWN_EGG = registerItem("radscal_spawn_egg",
             new SpawnEggItem(ModEntities.RADSCAL, 0xAB3636, 0x269B41,

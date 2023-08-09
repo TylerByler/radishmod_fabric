@@ -14,6 +14,6 @@ public class RadscalS2CPacket {
                                PacketByteBuf buf, PacketSender responseSender) {
         // Everything here happens only on client
 
-        client.player.sendMessage(Text.translatable("radishmod.radscal.swing"));
+        client.player.sendMessage(Text.translatable("Level Updated"));
     }
 }

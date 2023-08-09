@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:oak_slab"
+    },
+    "W": {
+      "item": "minecraft:oak_planks"
+    }
+  },
+  "pattern": [
+    "W W",
+    "# #",
+    "W#W"
+  ],
+  "result": {
+    "count": 1,
+    "item": "radishmod:radish_crate"
+  },
+  "show_notification": true
+}

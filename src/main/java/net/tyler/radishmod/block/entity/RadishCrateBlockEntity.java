@@ -7,6 +7,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -18,10 +19,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tyler.radishmod.block.custom.RadishCrateBlock;
 import net.tyler.radishmod.screen.RadishCrateScreenHandler;
+import org.apache.logging.log4j.core.LogEventListener;
 import org.jetbrains.annotations.Nullable;
 
+import static net.tyler.radishmod.block.custom.RadishCrateBlock.LEVEL;
+
 public class RadishCrateBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-    private final DefaultedList<ItemStack> INVENTORY = DefaultedList.ofSize(3, ItemStack.EMPTY);
+    private final DefaultedList<ItemStack> INVENTORY = DefaultedList.ofSize( 9, ItemStack.EMPTY);
 
     public RadishCrateBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.RADISH_CRATE, pos, state);
@@ -55,26 +59,52 @@ public class RadishCrateBlockEntity extends BlockEntity implements NamedScreenHa
         return this.INVENTORY;
     }
 
+    public static void updateInventoryCount(RadishCrateBlockEntity entity) {
+        int count = 0;
+        for(int i = 0; i < entity.getItems().size(); i++) {
+            count = count + entity.getItems().get(i).getCount();
+        }
+
+    }
+
     public static void tick(World world, BlockPos blockPos, BlockState blockState, RadishCrateBlockEntity entity) {
-        if(world.isClient()) {
+        if (world.isClient()) {
             return;
         }
 
-        Block block = world.getBlockState(blockPos).getBlock();
-        if (block.getClass().equals(RadishCrateBlock.class)) {
-            int count = entity.INVENTORY.get(1).getCount() + entity.INVENTORY.get(2).getCount();
-            if(count > 0) {
-                if(count > 32) {
-                    if(count > 64) {
-                        if(count > 96) {
-                            if (count > 128) {
+        SimpleInventory inventory = new SimpleInventory(entity.size());
+        for (int i = 0; i < entity.size(); i++) {
+            inventory.setStack(i, entity.getStack(i));
+        }
 
-                            }
+        int count = 0;
+        for (int i = 0; i < inventory.size(); i++) {
+            count += inventory.getStack(i).getCount();
+        }
+
+        if(count >= 0) {
+            if (count >= 144) {
+                if (count >= 288) {
+                    if (count >= 432) {
+                        if (count >= 576) {
+                            world.setBlockState(blockPos, blockState.with(LEVEL, 4));
+                            markDirty(world, blockPos, blockState);
+                            return;
                         }
+                        world.setBlockState(blockPos, blockState.with(LEVEL, 3));
+                        markDirty(world, blockPos, blockState);
+                        return;
                     }
+                    world.setBlockState(blockPos, blockState.with(LEVEL, 2));
+                    markDirty(world, blockPos, blockState);
+                    return;
                 }
+                world.setBlockState(blockPos, blockState.with(LEVEL, 1));
+                markDirty(world, blockPos, blockState);
+                return;
             }
-            ((RadishCrateBlock) block).LEVEL
+            world.setBlockState(blockPos, blockState.with(LEVEL, 0));
+            markDirty(world, blockPos, blockState);
         }
     }
 }
