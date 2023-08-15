@@ -2,6 +2,7 @@ package net.tyler.radishmod.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
@@ -78,10 +79,18 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
     }
 
+    //Make item compostable
+    public static void registerCompostableItems() {
+        CompostingChanceRegistry.INSTANCE.add(RADISH_SEEDS, 0.3f);
+        CompostingChanceRegistry.INSTANCE.add(RADISH, 0.65f);
+        CompostingChanceRegistry.INSTANCE.add(RADISH_BUNDLE, 0.85f);
+    }
+
     // Called in RadishMod to initialize registry of items
     public static void registerModItems() {
         RadishMod.LOGGER.info("Registering Mod Items for " + RadishMod.MOD_ID);
 
         addItemsToItemGroup();
+        registerCompostableItems();
     }
 }

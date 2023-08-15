@@ -33,7 +33,7 @@ public class RadishCrateBlockEntity extends BlockEntity implements NamedScreenHa
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("Radish Crate");
+        return Text.translatable(getCachedState().getBlock().getTranslationKey());
     }
 
     @Nullable
@@ -68,7 +68,7 @@ public class RadishCrateBlockEntity extends BlockEntity implements NamedScreenHa
     }
 
     public static void tick(World world, BlockPos blockPos, BlockState blockState, RadishCrateBlockEntity entity) {
-        if (world.isClient()) {
+        if (world.isClient) {
             return;
         }
 
@@ -83,10 +83,10 @@ public class RadishCrateBlockEntity extends BlockEntity implements NamedScreenHa
         }
 
         if(count >= 0) {
-            if (count >= 144) {
-                if (count >= 288) {
-                    if (count >= 432) {
-                        if (count >= 576) {
+            if (count >= 32) {
+                if (count >= 64) {
+                    if (count >= 96) {
+                        if (count >= 128) {
                             world.setBlockState(blockPos, blockState.with(LEVEL, 4));
                             markDirty(world, blockPos, blockState);
                             return;

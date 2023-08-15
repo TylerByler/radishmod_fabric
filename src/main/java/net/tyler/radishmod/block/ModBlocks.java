@@ -3,6 +3,7 @@ package net.tyler.radishmod.block;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -59,8 +60,17 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModCreativeModeTabs.RADISH_MOD_GROUP).register(entries -> entries.add(item));
     }
 
+    //Make item compostable
+    public static void registerCompostableBlocks() {
+        CompostingChanceRegistry.INSTANCE.add(COMPACT_RADISHES, 1.0f);
+        CompostingChanceRegistry.INSTANCE.add(RADISH_BRICKS, 1.0f);
+        CompostingChanceRegistry.INSTANCE.add(DECORATED_RADISH_BRICKS, 1.0f);
+    }
+
     public static void registerModBlocks() {
         RadishMod.LOGGER.info("Registering Mod Blocks for " + RadishMod.MOD_ID);
+
+        registerCompostableBlocks();
     }
 
 }

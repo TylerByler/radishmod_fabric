@@ -1,6 +1,8 @@
 package net.tyler.radishmod;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
@@ -13,6 +15,7 @@ import net.tyler.radishmod.networking.ModMessages;
 import net.tyler.radishmod.screen.ModScreenHandlers;
 import net.tyler.radishmod.screen.RadishCrateScreen;
 
+@Environment(EnvType.CLIENT)
 public class RadishModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {

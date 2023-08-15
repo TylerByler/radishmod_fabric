@@ -3,9 +3,11 @@
 	"id": "radishmod",
 	"version": "${version}",
 	"name": "Radish Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod adds radishes, radish entities, and other future features to Minecraft!",
 	"authors": [
-		"Tyler Byler"
+		"Ragsss",
+		"Absadoodle",
+		"Radishologist"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
